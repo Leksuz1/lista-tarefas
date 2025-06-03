@@ -2,16 +2,17 @@
 <html lang="pt-br">
     <meta charset="UTF-8">
     <link rel="shortcut icon" type="imagex/png" href="./imagens/document.png">
+    <link rel="stylesheet" href="estilo.css">
     <head>
         <title>Lista de Tarefas</title>
-        <div style="text-align: center;">
-            <h1>LISTA DE TAREFAS</h1>
-        </div>
     </head>
     <body>
+        <div id="teste" style="text-align: center;">
+            <h1>LISTA DE TAREFAS</h1>
+        </div>
         <div style="text-align: center;">
             <input type="text" placeholder="INSIRA UMA TAREFA..." id="entradaTarefa">
-            <button onclick="adicionarTarefa()">Adicionar</button>
+            <button onclick="adicionarTarefa()" id="botaoAdicionar">Adicionar</button>
             <div style="padding-top: 5px;">
                 <ul id="listaTarefas"></ul>
             </div>

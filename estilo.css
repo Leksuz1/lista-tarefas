@@ -1,3 +1,25 @@
-.teste {
-    color: grey;
+body {
+    background-color: #efe8d0;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+#botaoAdicionar {
+    background-color: #4CAF50; /* verde */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  #botaoAdicionar:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+  }
+
+  #botaoAdicionar:active {
+    transform: scale(0.98);
+  }
