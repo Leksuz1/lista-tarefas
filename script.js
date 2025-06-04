@@ -3,12 +3,19 @@ const listaTarefas = document.getElementById('listaTarefas');
 
 let tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
 
+let posicaoEditar = undefined;
+
 carregarTarefas();
 
 function adicionarTarefa() {
     let texto = entradaTarefa.value.trim();
     if (texto != "") {
-        tarefas.push(entradaTarefa.value);
+        if (posicaoEditar != undefined) {
+            tarefas[posicaoEditar] = entradaTarefa.value;
+            posicaoEditar = undefined;
+        } else {
+            tarefas.push(entradaTarefa.value);
+        }
         entradaTarefa.value = "";
         salvarTarefas();
         carregarTarefas();
@@ -30,6 +37,7 @@ function carregarTarefas() {
         item.className = "item-lista";
         item.innerHTML = `
         <span>${tarefa}</span>
+        <button id="botaoRemover" onclick="editarTarefa(${posicao})">Editar</button>
         <button id="botaoRemover" onclick="removerTarefa(${posicao})">X</button>
         `;
         listaTarefas.appendChild(item);
@@ -44,4 +52,9 @@ function removerTarefa(posicao) {
 
 function salvarTarefas() {
     localStorage.setItem('tarefas', JSON.stringify(tarefas));
+}
+
+function editarTarefa(posicao) {
+    posicaoEditar = posicao;
+    entradaTarefa.value = tarefas[posicao];
 }
